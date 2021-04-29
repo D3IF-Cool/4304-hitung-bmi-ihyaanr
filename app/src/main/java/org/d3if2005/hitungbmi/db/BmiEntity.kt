@@ -3,7 +3,7 @@ package org.d3if2005.hitungbmi.db
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
-class BmiEntity {
+class BmiEntity(berat: Float, tinggi: Float, isMale: Boolean) {
     @Entity(tableName = "bmi")
     data class BmiEntity(
         @PrimaryKey(autoGenerate = true)
@@ -16,7 +16,7 @@ class BmiEntity {
     @Dao
     interface BmiDao {
         @Insert
-        fun insert(bmi: BmiEntity)
+        fun insert(bmi: org.d3if2005.hitungbmi.db.BmiEntity)
         @Query("SELECT * FROM bmi ORDER BY id DESC LIMIT 1")
         fun getLastBmi(): LiveData<BmiEntity?>
     }

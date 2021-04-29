@@ -8,7 +8,9 @@ import androidx.room.RoomDatabase
 class BmiDb {
     @Database(entities = [BmiEntity::class], version = 1, exportSchema = false)
     abstract class BmiDb : RoomDatabase() {
+
         abstract val dao: BmiEntity.BmiDao
+
         companion object {
             @Volatile
             private var INSTANCE: BmiDb? = null
